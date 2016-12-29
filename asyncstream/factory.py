@@ -1,10 +1,11 @@
 import asyncio
 import socket
 
-from asyncstream import utils, stream
+from . import utils
+from . import stream
 
 
-class StreamClient:
+class Client:
     def __init__(self, loop=None):
         self._loop = loop or asyncio.get_event_loop()
 
@@ -27,7 +28,7 @@ class StreamClient:
         return stream.SocketStream(sock, self._loop)
 
 
-class StreamServer:
+class Server:
     def __init__(self, callback, loop=None):
         self._callback = callback
         self._loop = loop or asyncio.get_event_loop()

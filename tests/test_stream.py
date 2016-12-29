@@ -1,21 +1,7 @@
 import asyncio
 import tests
 
-from asyncstream import stream
-
-
-# class EchoServerProtocol(asyncio.Protocol):
-#     def __init__(self):
-#         self.transport = None
-#
-#     def connection_made(self, transport):
-#         self.transport = transport
-#
-#     def connection_lost(self, error):
-#         self.transport = None
-#
-#     def data_received(self, data):
-#         self.transport.write(data)
+import asyncstream
 
 
 class TestServerProtocol(asyncio.Protocol):
@@ -35,7 +21,6 @@ class TestServerProtocol(asyncio.Protocol):
 
 
 class SocketStreamTestCase(tests.BaseTestCase):
-
     async def test_read_async(self):
 
         server, server_addr = await self.create_socket_server(TestServerProtocol)
@@ -57,7 +42,7 @@ class SocketStreamTestCase(tests.BaseTestCase):
         stream.close()
         try:
             await stream.read_async(1024)
-        except stream.StreamClosedError:
+        except asyncstream.StreamClosedError:
             pass
         else:
             self.fail("StreamClosed not raised")

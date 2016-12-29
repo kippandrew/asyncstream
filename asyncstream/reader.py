@@ -85,7 +85,6 @@ class StreamReader:
 
             # check for EOF
             if self._eof:
-                # self._read_buffer.clear()
                 # return an empty string
                 return b''
 

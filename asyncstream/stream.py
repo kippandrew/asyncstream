@@ -1,8 +1,6 @@
 import asyncio
 
-
-class StreamClosedError(IOError):
-    pass
+from .error import StreamClosedError
 
 
 class BaseStream:
@@ -198,10 +196,6 @@ class SocketStream(BaseStream):
     def __init__(self, socket, loop=None):
         """
         Create new instance of the SocketStream class
-        :param socket:
-        :param loop:
-        :type socket: socket.socket
-        :type loop: asyncio.AbstractEventLoop
         """
         super().__init__(loop)
         self._socket = socket
