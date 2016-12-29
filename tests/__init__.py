@@ -2,8 +2,7 @@ import asyncio
 import socket
 
 import asynctest
-
-from asyncstream import streams
+import asyncstream
 
 
 class BaseTestCase(asynctest.TestCase):
@@ -20,6 +19,6 @@ class BaseTestCase(asynctest.TestCase):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
         sock.setblocking(False)
         await asyncio.get_event_loop().sock_connect(sock, addr)
-        stream = streams.SocketStream(sock)
+        stream = asyncstream.SocketStream(sock)
         self.addCleanup(lambda: stream.close)
         return stream

@@ -1,7 +1,7 @@
 import asyncio
 import tests
 
-from asyncstream import streams
+from asyncstream import stream
 
 
 # class EchoServerProtocol(asyncio.Protocol):
@@ -57,7 +57,7 @@ class SocketStreamTestCase(tests.BaseTestCase):
         stream.close()
         try:
             await stream.read_async(1024)
-        except streams.StreamClosedError:
+        except stream.StreamClosedError:
             pass
         else:
             self.fail("StreamClosed not raised")

@@ -220,7 +220,3 @@ class SocketStream(BaseStream):
 
     def _write_fd(self, fd, data):
         return self._socket.send(data)
-
-
-class SSLSocketStream(BaseStream):
-    pass

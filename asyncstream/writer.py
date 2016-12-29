@@ -11,3 +11,5 @@ class StreamWriter:
 
     def write_line(self, data):
         pass
+
+

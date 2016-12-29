@@ -1,12 +1,12 @@
 _DEFAULT_BUFFER_SIZE = 65536
 _DEFAULT_READ_SIZE = 16384
 
-from . import streams
+from . import stream
 from .error import BufferOverrunError
 
 
 class StreamReader:
-    def __init__(self, stream: streams.BaseStream, buffer_size=_DEFAULT_BUFFER_SIZE, read_size=_DEFAULT_READ_SIZE):
+    def __init__(self, stream: stream.BaseStream, buffer_size=_DEFAULT_BUFFER_SIZE, read_size=_DEFAULT_READ_SIZE):
         """
         Create a new instance of the StreamReader class
         """
