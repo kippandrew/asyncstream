@@ -1,0 +1,2 @@
+class BufferOverrunError(RuntimeError):
+    pass
