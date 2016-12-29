@@ -1,6 +1,7 @@
 import socket
 
 import asyncstream
+import asyncstream.factory
 
 import tests
 
@@ -8,7 +9,7 @@ import tests
 class ServerTestCase(tests.BaseTestCase):
     async def create_server(self, callback):
         server_addr = ('127.0.0.1', None)
-        server = asyncstream.StreamServer(callback)
+        server = asyncstream.factory.StreamServer(callback)
         await server.listen(*server_addr)
         self.addCleanup(lambda: server.close())
 
